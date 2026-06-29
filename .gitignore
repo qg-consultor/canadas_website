@@ -1,3 +1,26 @@
+﻿# === Carpeta de configuracion de Vercel (NO subir al repo) ===
 .vercel
+
+# === Archivos de diseno originales (son muy pesados) ===
 *.psd
+*.ai
+*.sketch
+
+# === Videos locales (se alojan en Cloudflare Stream, no en el repo) ===
 *.mp4
+*.mov
+*.avi
+*.webm
+
+# === Archivos de sistema operativo ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === Editores ===
+.vscode/
+.idea/
+*.swp
+
+# === Dependencias (si se usa npm en el futuro) ===
+node_modules/
