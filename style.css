@@ -1055,7 +1055,7 @@ button {
     font-weight: 700;
 }
 
-.highlight-saggita {
+.highlight-canadas {
     font-family: var(--font-main) !important;
     font-weight: 700 !important;
     color: #1C3775 !important;
@@ -1555,7 +1555,7 @@ button {
         #master-plan .lote-vendido { fill: rgba(0,0,0,0.5) !important; opacity: 0.8 !important; }
         #master-plan .lote-disponible { fill: transparent !important; }
         
-        /* HOVER: Celeste Saggita y Stroke Blanco */
+        /* HOVER: Color Cañadas y Stroke Blanco */
         #master-plan .lote-disponible:hover { fill: #0082BA !important; opacity: 0.8 !important; stroke: #ffffff !important; stroke-width: 2px !important; }
         
         /* SELECCIONADO: Azul Marino y Stroke Blanco */
@@ -1791,7 +1791,7 @@ button {
     position: relative;
     width: 100vw;
     padding: 70px 5%;
-    background-image: url('SECCIONES/UBICACION/IMAGENES/Saggita_Residencial.png');
+    background-image: url('SECCIONES/UBICACION/IMAGENES/Canadas_Residencial.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
