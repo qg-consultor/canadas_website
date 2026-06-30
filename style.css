@@ -1,69 +1,44 @@
 @font-face {
-    font-family: 'NeueMontreal-Bold';
-    src: url('FUENTES/NeueMontreal-Bold.otf') format('opentype');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'NeueMontreal';
-    src: url('FUENTES/NeueMontreal-Regular.otf') format('opentype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'NeueMontreal';
-    src: url('FUENTES/NeueMontreal-Light.otf') format('opentype');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'NeueMontreal';
-    src: url('FUENTES/NeueMontreal-Medium.otf') format('opentype');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'NeueMontreal';
-    src: url('FUENTES/NeueMontreal-Italic.otf') format('opentype');
-    font-weight: 400;
+    font-family: 'PlayfairDisplay-Italic';
+    src: url('FUENTES/PlayfairDisplay-Italic.ttf') format('truetype');
+    font-weight: normal;
     font-style: italic;
     font-display: swap;
 }
+
+@font-face {
+    font-family: 'PlayfairDisplay-Regular';
+    src: url('FUENTES/PlayfairDisplay-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 
 /* ========================================================
    CSS Variables & Resets
    ======================================================== */
 :root {
-    /* --- COLORES DEL TEMA PAMYRA --- */
+    /* --- COLORES DEL TEMA CAÑADAS --- */
     --color-fondo: #FFFFFF;
-    --color-texto-principal: #354E3C;
-    --color-texto-secundario: #D5DCCE;
-    --color-primario: #354E3C; 
-    --color-primario-hover: #0082BA; 
-    
-    /* --- COLORES DEL MAPA (Adaptados a Pamyra) --- */
-    --mapa-seleccionado: #354E3C;
+    --color-texto-principal: #333333;
+    --color-texto-secundario: #d6b100;
+    --color-primario: #00458b;
+    --color-primario-hover: #d6b100;
+    --mapa-seleccionado: #00458b;
 
     /* --- TIPOGRAFÍA --- */
-    --fuente-principal: 'Montserrat', sans-serif;
-    --fuente-secundaria: 'NeueMontreal-Bold', sans-serif;
+    --fuente-principal: 'PlayfairDisplay-Italic', serif;
+    --fuente-secundaria: 'Montserrat', sans-serif;
 
     /* --- RETROCOMPATIBILIDAD CON ALIAS ANTERIORES PARA EVITAR QUE SE ROMPA EL SITIO --- */
     --color-secundario: var(--color-texto-secundario);
     --color-text: var(--color-texto-principal);
     --color-text-muted: #888888;
-    --color-border: rgba(53, 78, 60, 0.2);
-    --font-main: var(--fuente-principal);
-    --font-secundario: var(--fuente-secundaria);
-    
+    --color-border: rgba(0, 69, 139, 0.2);
+    --font-main: var(--fuente-secundaria);
+    --font-secundario: var(--fuente-principal);
+
     --primary-color: var(--color-primario);
     --text-dark: var(--color-fondo);
     --glass-bg: rgba(255, 255, 255, 0.1);
@@ -79,15 +54,15 @@
 }
 
 html {
-    scroll-padding-top: 100px; /* Aligns anchor clicks taking navbar height into account */
+    scroll-padding-top: 100px; 
 }
 
 body {
-    font-family: var(--fuente-principal);
+    font-family: var(--fuente-secundaria);
     color: var(--color-texto-principal);
     background-color: var(--color-fondo);
     overflow-x: hidden;
-    scroll-behavior: smooth; /* Añadido para navegación suave */
+    scroll-behavior: smooth;
 }
 
 /* ========================================================
@@ -96,7 +71,7 @@ body {
 h1, h2, h3, h4, h5, h6, 
 .proyecto-main-title, .prototipos-main-title, .ubicacion-title, .contacto-title, .fp-title, #lb-title {
     font-family: var(--fuente-secundaria) !important;
-    color: #1C3775 !important;
+    color: #00458b !important;
 }
 
 a {
@@ -109,6 +84,16 @@ button {
     outline: none;
     cursor: pointer;
     font-family: inherit;
+}
+
+/* ========================================================
+   Reglas Globales de Títulos
+   ======================================================== */
+h1, h2, h3, h4, h5, h6,
+.proyecto-main-title, .prototipos-main-title, .ubicacion-title, .contacto-title, .fp-title, #lb-title {
+    font-family: var(--fuente-principal) !important;
+    color: var(--color-primario) !important;
+    text-transform: capitalize !important;
 }
 
 /* ========================================================
@@ -140,7 +125,6 @@ button {
     pointer-events: none;
 }
 
-/* (The sunset timelapse overlay has been removed per user request) */
 /* ========================================================
    Navigation
    ======================================================== */
@@ -155,21 +139,21 @@ button {
 }
 
 .hero-sidebar {
-    position: absolute; /* Exclusivo sobre el hero */
+    position: absolute; 
     top: 0;
     left: 0;
     bottom: 0;
-    width: 205px;
+    width: 220px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 15px 22px 140px 22px; /* bottom padding eleva los iconos por arriba del degradado blanco de 120px */
-    background: rgba(255, 255, 255, 0.80); /* Transparente al 80% */
+    padding: 15px 22px 140px 22px; 
+    background: rgba(255, 255, 255, 0.80); 
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     border-right: 1px solid rgba(53, 78, 60, 0.1);
-    z-index: 4; /* Por detrás del difuminado blanco hero-fade-bottom (z-index 5) */
+    z-index: 4; 
     box-shadow: 5px 0 25px rgba(0,0,0,0.05);
 }
 
@@ -179,16 +163,17 @@ button {
     gap: 18px;
     align-items: flex-start;
     width: 100%;
-    padding: 0;
+    padding: 0 0 0 15px;
     margin: 0;
 }
 
 .hero-sidebar .nav-links a {
+    font-family: var(--fuente-secundaria);
     font-weight: 600;
     font-size: 14px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #191919; /* verde oscuro corporativo sobre fondo blanco */
+    color: #191919;
     transition: var(--transition);
     position: relative;
     padding: 10px 12px;
@@ -201,7 +186,7 @@ button {
 }
 
 .hero-sidebar .nav-links a:hover {
-    background: #0082BA;
+    background: #d6b100;
     color: #FFFFFF;
     transform: translateX(6px);
 }
@@ -212,7 +197,7 @@ button {
     align-items: flex-start;
     gap: 20px;
     width: 100%;
-    padding: 0;
+    padding: 0 0 0 15px;
     margin: 0;
 }
 
@@ -225,7 +210,7 @@ button {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: #0082BA;
+    background: #00458b;
     border: none;
     display: flex;
     justify-content: center;
@@ -239,7 +224,7 @@ button {
 }
 
 .hero-sidebar .social-icons a:hover {
-    background: #1C3775;
+    background: #d6b100;
 }
 .hero-sidebar .social-icons a:hover i {
     color: #FFFFFF;
@@ -252,7 +237,7 @@ button {
     padding: 10px 20px;
     background: #FFFFFF;
     color: #0A231D;
-    font-weight: 700; /* Bolder as per reference */
+    font-weight: 700; 
     font-size: 14px;
     border-radius: 40px;
     transition: var(--transition);
@@ -266,14 +251,14 @@ button {
     justify-content: center;
     align-items: center;
     transition: var(--transition);
-    color: #0A231D;
+    color: #00458b;
 }
 
 .btn-appointment:hover {
     padding-right: 20px;
     padding-left: 30px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    background: #0082BA;
+    background: #d6b100;
     color: #FFFFFF;
 }
 
@@ -429,7 +414,7 @@ button {
 
 .btn-main-cta:hover {
     transform: translateY(-5px);
-    background: #0082BA;
+    background: #00458b;
     color: #FFFFFF;
     box-shadow: 0 20px 45px rgba(0,0,0,0.3);
 }
@@ -459,7 +444,7 @@ button {
     transition: var(--transition);
     pointer-events: auto; /* Reactivar clic */
     text-decoration: none;
-    color: #354E3C;
+    color: #00458b;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* dropshadow ligero */
 }
 
@@ -943,7 +928,7 @@ button {
     position: fixed;
     bottom: 40px;
     right: 40px;
-    background: #0082BA;
+    background: #00458b;
     color: #F8F3E8; /* Icono de flecha en color crema claro */
     width: 50px;
     height: 50px;
@@ -968,7 +953,7 @@ button {
 }
 
 .back-to-top:hover {
-    background: #1C3775;
+    background: #00458b;
     transform: translateY(-5px);
 }
 
@@ -977,7 +962,7 @@ button {
    ======================================================== */
 .proyecto-section {
     background-color: #FFFFFF;
-    color: #354E3C;
+    color: #00458b;
     padding: 50px 5% 100px 5%; /* Uniform padding, reduced top */
     position: relative;
     z-index: 20;
@@ -1030,7 +1015,7 @@ button {
     font-weight: 700; /* Cambiado a bold */
     font-size: 56px;
     letter-spacing: -1px; /* Tighter letter spacing like reference */
-    color: #1C3775 !important; /* Cambiado a #1C3775 */
+    color: #00458b !important; /* Cambiado a #00458b */
     text-transform: uppercase;
     line-height: 1.1;
     margin-bottom: 10px;
@@ -1045,20 +1030,20 @@ button {
     font-weight: 400; /* Regular */
     font-size: 20px; /* Aumentado tamaño de fuente */
     line-height: 1.6;
-    color: #354E3C; /* Modificado color principal */
+    color: #333333; /* Modificado color principal */
     max-width: 95%;
     margin-bottom: 10px;
 }
 
 .proyecto-sm-text strong {
-    color: #354E3C;
+    color: #00458b;
     font-weight: 700;
 }
 
 .highlight-canadas {
     font-family: var(--font-main) !important;
     font-weight: 700 !important;
-    color: #1C3775 !important;
+    color: #00458b !important;
 }
 
 .proyecto-sm-text .fw-light {
@@ -1067,12 +1052,12 @@ button {
 }
 
 .proyecto-sm-text .highlight-text {
-    color: #354E3C;
+    color: #00458b;
     font-weight: 700;
 }
 
 .btn-dark {
-    background: #0082BA;
+    background: #00458b;
     color: #FFFFFF;
     margin-top: 15px;
     display: flex;
@@ -1080,7 +1065,7 @@ button {
 }
 
 .btn-dark:hover {
-    background: #1C3775;
+    background: #d6b100;
     color: #FFFFFF;
     box-shadow: 0 10px 20px rgba(28, 55, 117, 0.3);
 }
@@ -1155,8 +1140,8 @@ button {
 }
 
 .proyecto-large-quote {
-    font-family: var(--font-secundario);
-    font-weight: 700;
+    font-family: 'PlayfairDisplay-Regular', serif;
+    font-weight: 400; /* Regular weight for regular font */
     font-size: 38px;
     line-height: 1.4;
     color: #666666; /* El mismo color gris */
@@ -1165,7 +1150,7 @@ button {
 
 .proyecto-large-quote .text-accent {
     font-weight: 700;
-    color: #0082BA; /* Color acento para énfasis */
+    color: #00458b; /* Color acento para énfasis */
 }
 
 /* Glass Slider Buttons */
@@ -1261,8 +1246,8 @@ button {
    ======================================================== */
 .prototipos-section {
     background-color: #FFFFFF; /* Fondo muy oscuro basado en la referencia */
-    color: #354E3C;
-    padding: 50px 5% 100px 5%; /* Uniform padding, reduced top */
+    color: #00458b;
+    padding: 50px 5% 40px 5%; /* Uniform padding, reduced top */
     position: relative;
     z-index: 10;
 }
@@ -1290,7 +1275,7 @@ button {
 
 .badge-dark {
     border-color: rgba(53, 78, 60, 0.3);
-    color: #354E3C;
+    color: #00458b;
 }
 
 .prototipos-main-title {
@@ -1337,9 +1322,9 @@ button {
 }
 
 .btn-light-outline:hover {
-    background: #0082BA;
+    background: #d6b100;
     color: #FFFFFF;
-    border-color: #0082BA;
+    border-color: #d6b100;
 }
 
 .btn-light {
@@ -1359,7 +1344,7 @@ button {
 }
 
 .btn-light:hover {
-    background: #0082BA;
+    background: #d6b100;
     color: #FFFFFF;
 }
 
@@ -1379,7 +1364,7 @@ button {
 
 .btn-light:hover .icon-arrow {
     background: #FFFFFF;
-    color: #0082BA;
+    color: #00458b;
 }
 
 /* Galería de Prototipos */
@@ -1447,18 +1432,19 @@ button {
 }
 
 .proto-title-row h3 {
-    font-family: var(--font-secundario);
-    font-weight: 800;
-    font-size: 18px;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 700 !important;
+    font-style: normal !important;
+    font-size: 18px !important;
     letter-spacing: 0.5px;
     margin: 0;
-    text-transform: uppercase;
+    text-transform: uppercase !important;
 }
 
 .proto-number {
     font-weight: 400;
     font-size: 14px;
-    color: var(--color-primario);
+    color: var(--color-texto-secundario);
 }
 
 .proto-info p {
@@ -1499,7 +1485,7 @@ button {
     }
     .proyecto-image-col {
         height: 400px;
-        order: -1; /* Move image above text on mobile */
+        order: -1; 
     }
 }
 
@@ -1521,7 +1507,7 @@ button {
         /* PANEL IZQUIERDO Y TARJETAS */
         #master-plan .stats-panel { flex: 0 0 350px !important; display: flex; flex-direction: column; gap: 20px; z-index: 10; order: 1; text-align: left; }
         #master-plan .stats-panel h2 { font-weight: 800; font-size: 2rem; margin-bottom: 10px; letter-spacing: -2px; text-transform: uppercase; }
-        #master-plan .stat-card { background: #0082BA; border: none; border-radius: 12px; padding: 20px; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: default; text-align: left; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        #master-plan .stat-card { background: #00458b; border: 2px solid #d6b100; border-radius: 12px; padding: 20px; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: default; text-align: left; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
         #master-plan .stat-card:hover { transform: translateX(10px); box-shadow: 0 8px 25px rgba(0, 130, 186, 0.4); }
         #master-plan .stat-number { font-size: 1.8rem; font-weight: 800; color: #FFFFFF; margin-bottom: 5px; }
         #master-plan .stat-label { font-size: 0.9rem; font-weight: 500; color: #FFFFFF; }
@@ -1532,7 +1518,7 @@ button {
         #master-plan .base-map-img { width: 100%; height: auto; display: block; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5)); }
         #master-plan .interactive-svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2; }
         
-        #master-plan .map-instruction { position: relative; white-space: nowrap; background: #0082BA; border: none; color: #FFFFFF; padding: 12px 30px; border-radius: 30px; font-size: 1.1rem; font-weight: 800; display: flex; align-items: center; gap: 8px; animation: floatY 3s ease-in-out infinite; box-shadow: 0 10px 20px rgba(0, 130, 186, 0.3); }
+        #master-plan .map-instruction { position: relative; white-space: nowrap; background: #00458b; border: none; color: #FFFFFF; padding: 12px 30px; border-radius: 30px; font-size: 1.1rem; font-weight: 800; display: flex; align-items: center; gap: 8px; animation: floatY 3s ease-in-out infinite; box-shadow: 0 10px 20px rgba(0, 130, 186, 0.3); }
         #master-plan .map-instruction span { font-size: 1.4rem; }
         @keyframes floatY { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-5px); } }
         /* MAGIA DEL MAPA */
@@ -1542,9 +1528,9 @@ button {
         #tooltip.visible { opacity: 1; transform: translateY(0); visibility: visible; }
         .tt-title { font-family: 'NeueMontreal-Bold', sans-serif; font-weight: 800; font-size: 1.4rem; margin-bottom: 8px; color: var(--color-texto-secundario); text-transform: uppercase; letter-spacing: 1px; }
         .tt-desc { font-family: 'Montserrat', sans-serif; font-weight: 300; font-size: 0.95rem; color: #FFFFFF; margin-bottom: 20px; }
-        #tt-btn { display: inline-block; background: #0082BA !important; color: #FFFFFF !important; padding: 8px 16px; border-radius: 20px; font-family: var(--fuente-principal) !important; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px !important; cursor: pointer; border: none; width: 100%; transition: background 0.2s ease, color 0.2s ease; }
-        #tt-btn:hover { background: #FFFFFF !important; color: #0082BA !important; }
-        .tt-close-btn { position: absolute; top: 10px; right: 10px; background: none; border: none; color: #D5DCCE; font-size: 1.2rem; cursor: pointer; transition: color 0.2s ease; z-index: 10; padding: 5px; line-height: 1; }
+        #tt-btn { display: inline-block; background: #00458b !important; color: #FFFFFF !important; padding: 8px 16px; border-radius: 20px; font-family: var(--fuente-principal) !important; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px !important; cursor: pointer; border: none; width: 100%; transition: background 0.2s ease, color 0.2s ease; }
+        #tt-btn:hover { background: #FFFFFF !important; color: #00458b !important; }
+        .tt-close-btn { position: absolute; top: 10px; right: 10px; background: none; border: none; color: #d6b100; font-size: 1.2rem; cursor: pointer; transition: color 0.2s ease; z-index: 10; padding: 5px; line-height: 1; }
         .tt-close-btn:hover { color: white; }
         .tt-logo-container { width: 100%; text-align: center; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
         .tt-logo { max-width: 60px; height: auto; filter: brightness(0) invert(1); opacity: 0.9; }
@@ -1556,10 +1542,10 @@ button {
         #master-plan .lote-disponible { fill: transparent !important; }
         
         /* HOVER: Color Cañadas y Stroke Blanco */
-        #master-plan .lote-disponible:hover { fill: #0082BA !important; opacity: 0.8 !important; stroke: #ffffff !important; stroke-width: 2px !important; }
+        #master-plan .lote-disponible:hover { fill: #00458b !important; opacity: 0.8 !important; stroke: #ffffff !important; stroke-width: 2px !important; }
         
         /* SELECCIONADO: Azul Marino y Stroke Blanco */
-        #master-plan .is-selected { fill: #1C3775 !important; opacity: 0.9 !important; stroke: #ffffff !important; stroke-width: 3px !important; }
+        #master-plan .is-selected { fill: #00458b !important; opacity: 0.9 !important; stroke: #ffffff !important; stroke-width: 3px !important; }
 
 @media (max-width: 1024px) {
   #master-plan .mp-container { display: flex !important; flex-direction: column !important; gap: 30px; padding: 10px; }
@@ -1638,7 +1624,7 @@ button {
 .ubicacion-section {
     background-color: #FFFFFF;
     padding: 50px 5% 100px 5%; /* Uniform padding, reduced top */
-    color: #354E3C;
+    color: #00458b;
     position: relative;
     z-index: 20;
 }
@@ -1672,7 +1658,7 @@ button {
     color: var(--color-primario);
 }
 .ubicacion-title .text-dark {
-    color: #354E3C;
+    color: #00458b;
 }
 
 .ubicacion-content {
@@ -1739,7 +1725,7 @@ button {
     font-family: var(--font-secundario);
     font-weight: 800;
     font-size: 20px;
-    color: #354E3C;
+    color: #00458b;
     margin-bottom: 2px;
     line-height: 1.2;
 }
@@ -1791,7 +1777,7 @@ button {
     position: relative;
     width: 100vw;
     padding: 70px 5%;
-    background-image: url('SECCIONES/UBICACION/IMAGENES/Canadas_Residencial.png');
+    background-image: url('Canadas_By_Mirador_Terrenos.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1941,7 +1927,7 @@ button {
     display: inline-flex;
     align-items: center;
     gap: 15px;
-    background: #0082BA;
+    background: #00458b;
     color: #FFFFFF;
     font-family: var(--font-secundario);
     font-weight: 700;
@@ -1959,7 +1945,7 @@ button {
 .btn-submit-glass:hover {
     box-shadow: 0 15px 35px rgba(0,0,0,0.2);
     transform: translateY(-4px);
-    background: #1C3775;
+    background: #d6b100;
     color: #FFFFFF;
 }
 
@@ -2003,8 +1989,8 @@ button {
 /* Estado al pasar el mouse (Hover) */
 .lote-interactivo:hover {
     opacity: 1;
-    fill: #D5DCCE;
-    stroke: #D5DCCE;
+    fill: #d6b100;
+    stroke: #d6b100;
     stroke-width: 2px;
 }
 
@@ -2028,11 +2014,11 @@ button {
 
 /* Flechas slider azul celeste */
 .glass-slider-btn {
-    color: #00BFFF !important; /* Azul celeste */
+    color: #00458b !important; /* Azul de la paleta */
 }
 .glass-slider-btn:hover i, 
 .glass-slider-btn:active i {
-    color: #00BFFF !important;
+    color: #00458b !important;
 }
 /* Evita que se quede en blanco en mobile */
 .glass-slider-btn:active {
@@ -2101,7 +2087,7 @@ button {
 
 /* Color azul celeste muy ligero para los íconos de ubicación */
 .place-icon {
-    color: #B3E5FC !important;
+    color: #d6b100 !important;
 }
 
 /* Ajustar el frame del video en PC para que tenga aspecto 16:9 nativo y evite barras negras del iframe */
